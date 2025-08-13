@@ -21,6 +21,16 @@ public struct Report: Sendable, Codable, Equatable {
         public let file: String?
         public let line: Int?
         public let column: Int?
+
+        public init(
+            file: String? = nil,
+            line: Int? = nil,
+            column: Int? = nil
+        ) {
+            self.file = file
+            self.line = line
+            self.column = column
+        }
     }
 
     /// The position in the source code to which the report refers.
@@ -29,4 +39,14 @@ public struct Report: Sendable, Codable, Equatable {
     public let type: ReportType
     /// The descriptive message content of the report.
     public let content: String
+
+    public init(
+        position: Position,
+        type: ReportType,
+        content: String
+    ) {
+        self.position = position
+        self.type = type
+        self.content = content
+    }
 }
